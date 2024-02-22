@@ -1,6 +1,6 @@
 from keras.applications import VGG16
 from keras.models import Sequential
-from keras.layers import Conv2D, AveragePooling2D, Flatten, Dense, MaxPooling2D, Dropout
+from keras.layers import Conv2D, Flatten, Dense, MaxPooling2D, Dropout
 from keras.regularizers import l2
 from keras.optimizers import RMSprop
 from keras.preprocessing.image import ImageDataGenerator
@@ -14,14 +14,14 @@ def train_and_eval_CNN(X_train, y_train, X_val, y_val, X_test, y_test):
     model.add(Conv2D(64, kernel_size=(3, 3), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Flatten())
-    model.add(Dense(128, activation='relu', kernel_regularizer=l2(0.01)))
+    model.add(Dense(256, activation='relu'))
     model.add(Dropout(0.5))
-    model.add(Dense(NUM_CLASSES, activation='sigmoid'))
+    model.add(Dense(NUM_CLASSES, activation='softmax'))
 
     # Compile the model
     model.compile(
-        loss='binary_crossentropy',
-        optimizer=RMSprop(learning_rate=1e-5),
+        loss='categorical_crossentropy',
+        optimizer=RMSprop(learning_rate=1e-4),
         metrics=['accuracy']
     )
 
@@ -31,10 +31,10 @@ def train_and_eval_CNN(X_train, y_train, X_val, y_val, X_test, y_test):
     # Create a data generator for the data augmentation
     datagen = ImageDataGenerator(
         rotation_range=15,
-        width_shift_range=0.05,
-        height_shift_range=0.05,
-        shear_range=0.05,
-        brightness_range=[0.1, 1.5],
+        width_shift_range=0.1,
+        height_shift_range=0.1,
+        shear_range=0.1,
+        brightness_range=[0.2, 1.0],
         horizontal_flip=True,
         vertical_flip=True,
         channel_shift_range=0.5,

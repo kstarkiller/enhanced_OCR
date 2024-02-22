@@ -20,7 +20,7 @@ def train_and_eval_VGG(X_train, y_train, X_val, y_val, X_test, y_test):
     model.add(Dropout(0.5))
     model.add(Dense(256, activation='relu'))
     model.add(Dropout(0.5))
-    model.add(Dense(NUM_CLASSES, activation='sigmoid'))
+    model.add(Dense(NUM_CLASSES, activation='softmax'))
 
     # Fine-tuning
     for layer in base_model.layers:
@@ -28,7 +28,7 @@ def train_and_eval_VGG(X_train, y_train, X_val, y_val, X_test, y_test):
 
     # Compile the model
     model.compile(
-        loss='binary_crossentropy',
+        loss='categorical_crossentropy',
         optimizer=RMSprop(learning_rate=1e-5),
         metrics=['accuracy']
     )
