@@ -12,7 +12,7 @@ def negative_image(image):
 
 def train_and_eval_VGG(X_train, y_train, X_val, y_val, X_test, y_test):
     # Create a pre-trained VGG-16 model (do not include the final dense layer)
-    base_model = VGG16(input_shape=(32,32,1), include_top=False)
+    base_model = VGG16(input_shape=(32,32,3), include_top=False)
 
     model = Sequential()
     model.add(base_model)
@@ -29,7 +29,7 @@ def train_and_eval_VGG(X_train, y_train, X_val, y_val, X_test, y_test):
     # Compile the model
     model.compile(
         loss='categorical_crossentropy',
-        optimizer=RMSprop(learning_rate=1e-5),
+        optimizer=RMSprop(learning_rate=1e-3),
         metrics=['accuracy']
     )
 
@@ -55,8 +55,8 @@ def train_and_eval_VGG(X_train, y_train, X_val, y_val, X_test, y_test):
     datagen.fit(X_train)
 
     # Train the model with data augmentation
-    model.fit(datagen.flow(X_train, y_train, batch_size=32), 
-            epochs=10, steps_per_epoch=len(X_train) // 32, 
+    model.fit(datagen.flow(X_train, y_train, batch_size=64), 
+            epochs=10, steps_per_epoch=len(X_train) // 64, 
             validation_data=(X_val, y_val))
 
     model.evaluate(X_test, y_test)
