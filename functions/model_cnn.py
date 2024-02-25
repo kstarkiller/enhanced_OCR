@@ -7,11 +7,11 @@ NUM_CLASSES = 10
 
 def train_and_eval_CNN(X_train, y_train, X_val, y_val, X_test, y_test):
     model = Sequential()
-    model.add(Conv2D(32, (5, 5), padding='same', activation='relu', input_shape=(28, 28, 1)))
+    model.add(Conv2D(32, (3,3), padding='same', activation='relu', input_shape=(48, 48, 1)))
     model.add(MaxPooling2D(pool_size=(2, 2)))
-    model.add(Conv2D(64, (5, 5), padding='same', activation='relu'))
+    model.add(Conv2D(64, (3,3), padding='same', activation='relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
-    model.add(Conv2D(128, (5, 5), padding='same', activation='relu'))
+    model.add(Conv2D(128, (3,3), padding='same', activation='relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Flatten())
     model.add(Dense(256, activation='relu'))
@@ -31,7 +31,7 @@ def train_and_eval_CNN(X_train, y_train, X_val, y_val, X_test, y_test):
         rotation_range=10,
         zoom_range=0.1,
         width_shift_range=0.1,
-        height_shift_range=0.1
+        height_shift_range=0.1,
     )
 
     # Fit the model with data augmentation
