@@ -12,7 +12,7 @@ def negative_image(image):
 
 def train_and_eval_VGG(X_train, y_train, X_val, y_val, X_test, y_test):
     # Create a pre-trained VGG-16 model (do not include the final dense layer)
-    base_model = VGG16(input_shape=(32,32,3), include_top=False)
+    base_model = VGG16(input_shape=(32,32,1), include_top=False)
 
     model = Sequential()
     model.add(base_model)
