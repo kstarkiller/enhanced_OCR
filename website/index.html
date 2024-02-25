@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="drawing.js" defer></script>
+    <script src="webcam.js" defer></script>
+
+    <title>La Poste MNIST</title>
+</head>
+
+<body>
+    <h1>La Poste</h1>
+    <h2>Vous simplifier la vie</h2>
+
+    <div id="main-container">
+        <div id="video-main">
+            <div class="center">Prendre une photo</div>
+
+            <div id="video-container">
+                <video autoplay="true" id="video"></video>
+            </div>
+            <div class="center small">(© Lokman)</div>
+
+            <div class="button-group">
+                <button class="button" id="save-webcam-pic">Prendre une photo</button>
+                <button class="button" id="toggle-webcam">Activer la webcam</button>
+            </div>
+        </div>
+
+
+        <div id="canvas-main">
+            <div class="center">Ou dessiner dans l'écran</div>
+            <div id="canvas-container">
+                <canvas id="drawing" width="280" height="280"></canvas>
+            </div>
+
+            <div class="button-group">
+                <button onclick="saveDrawing()" class="button">Enregistrer</button>
+            </div>
+            <div class='button-group'>
+                <button onclick="clearDrawing()" class="button">Clear Drawing</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

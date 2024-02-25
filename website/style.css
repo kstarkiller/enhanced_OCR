@@ -1,0 +1,78 @@
+:root {
+  --supernova: #ffc905;
+  --supernova-darker: hsl(from var(--supernova) h s calc(l - 5%));
+  --post-blue: #003da5;
+}
+
+html {
+  background-color: #fea;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#main-container {
+  margin: 0px auto;
+  display: flex;
+}
+
+#canvas-main, #video-main {
+  margin: 0px auto;
+
+}
+
+#canvas-container {
+  width: 280px;
+  height: 280px;
+  border: 4px #333 solid;
+}
+
+#video-container, #video {
+  width: 400px;
+  height: 300px;
+}
+
+#video-container {
+  border: 4px #333 solid;
+}
+
+#video {
+  background-color: #666;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  color: var(--post-blue);
+  margin-bottom: 0px;
+}
+
+h2 {
+  margin-top: 0px;
+  color: black;
+  font-size: 16px;
+}
+
+.center {
+  text-align: center;
+}
+
+.button-group {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button {
+  background-color: #ffcb04;
+  color: #3c3c3c;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.button:hover {
+  background-color: #ffa705;
+  color: #3c3c3c;
+  cursor: pointer;
+}
