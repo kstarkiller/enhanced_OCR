@@ -13,7 +13,7 @@ __pycache__/
 # models
 *.h5
 *.pkl
-*.kera
+*.keras
 
 # Jupyter Notebook
 .ipynb_checkpoints
