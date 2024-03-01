@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is about enhancing Optical Character Recognition (OCR) using machine learning. The main script is `webcam_recognition.ipynb` which uses a trained model to predict digits from photos taken from the website specially built for this project.
+This project is about enhancing Optical Character Recognition (OCR) using machine learning. The main script is `website_recognition.ipynb` which uses a trained model to predict digits from photos taken and drawings both from the website specially built for this project.
 
 ## Usage
 ### Create a conda environnement
@@ -21,8 +21,8 @@ This model will then be saved as a keras model in `models/number_recon_model.ker
 jupyterlab notebooks/number_recognition.ipynb
 ```
 
-### Take your own photos
-Thanks @Loke-60000's and @fdeage's website including in this project, you can take photos of handwritted numbers.
+### Draw or take photos of your numbers
+Thanks @Loke-60000's and @fdeage's website including in this project, you can take photos of handwritted numbers or draw them.
 To do so :
 
 ```bash
@@ -30,12 +30,12 @@ cd website
 python -m http.server 8001
 ```
 
-Your photos will be saved in your downloads' folder.
-You need to copy them into `this_project/data/webcam`
+Your photos and drawings will be saved in your downloads' folder.
+You need to copy them into `this_project/data/webcam` for the photos and `this_project/data/drawings` for the drawings.
 
 ### Make predictions
-Run `webcam_recognition.ipynb` to load your images, process them and use `number_recon_model.keras` to predict what number you draw.
+Run `website_recognition.ipynb` to load your images, process them and use `number_recon_model.keras` to predict what number you draw.
 
 ```bash
-jupyterlab webcam_recognition.ipynb
+jupyterlab website_recognition.ipynb
 ```
