@@ -22,7 +22,7 @@ jupyterlab notebooks/number_recognition.ipynb
 ```
 
 ### Take your own photos
-Thanks to this project's website you can take photos of handwritted numbers.
+Thanks @Loke-60000's and @fdeage's website including in this project, you can take photos of handwritted numbers.
 To do so :
 
 ```bash

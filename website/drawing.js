@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-    context.fillStyle = "#fff";
-    context.fillRect(0, 0, canvas.width, canvas.height);
     const canvas = document.getElementById("drawing");
     const context = canvas.getContext("2d");
+    context.fillStyle = "#ffff";
+    context.fillRect(0, 0, canvas.width, canvas.height);
 
     let isDrawing = false;
 
@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function saveDrawing() {
     const canvas = document.getElementById("drawing");
+    const context = canvas.getContext("2d");
     const imgData = canvas.toDataURL("../data/drawing");
 
     const link = document.createElement("a");
@@ -45,9 +46,10 @@ function saveDrawing() {
 }
 
 function clearDrawing() {
-    context.fillStyle = "#fff";
-    context.fillRect(0, 0, canvas.width, canvas.height);
     const canvas = document.getElementById("drawing");
     const context = canvas.getContext("2d");
     context.clearRect(0, 0, canvas.width, canvas.height);
-}
+  
+    context.fillStyle = "#fff";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+  }

@@ -8,9 +8,6 @@ def processing_img(image_path):
     img = cv2.bitwise_not(img)
 
     # resize the image
-    img = cv2.resize(img, (48, 48))
-
-    # normalize the image
-    img = img / 255.0
+    img = cv2.resize(img, (28, 28))
 
     return img
