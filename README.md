@@ -32,6 +32,7 @@ python -m http.server 8001
 
 Your photos and drawings will be saved in your downloads' folder.
 You need to copy them into `this_project/data/webcam` for the photos and `this_project/data/drawings` for the drawings.
+Each file must be renamed with its own value (if several files have the same value, add underscores ("_") after the value). This will serve to display the actual value of the number and calculate the accuracy of the prediction.
 
 ### Make predictions
 Run `website_recognition.ipynb` to load your images, process them and use `number_recon_model.keras` to predict what number you draw.
