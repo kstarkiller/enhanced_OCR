@@ -49,7 +49,7 @@ function clearDrawing() {
     const canvas = document.getElementById("drawing");
     const context = canvas.getContext("2d");
     context.clearRect(0, 0, canvas.width, canvas.height);
-  
+    
     context.fillStyle = "#fff";
     context.fillRect(0, 0, canvas.width, canvas.height);
-  }
+}

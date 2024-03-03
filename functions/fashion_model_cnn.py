@@ -7,16 +7,11 @@ NUM_CLASSES = 10
 
 def train_and_eval_CNN(X_train, y_train, X_val, y_val, X_test, y_test):
     model = Sequential()
-    model.add(Conv2D(32, (3,3), padding='same', activation='relu', input_shape=(48, 48, 1)))
-    model.add(MaxPooling2D(pool_size=(2, 2)))
-    model.add(Conv2D(64, (3,3), padding='same', activation='relu'))
-    model.add(MaxPooling2D(pool_size=(2, 2)))
-    model.add(Conv2D(128, (3,3), padding='same', activation='relu'))
-    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Conv2D(32, (3,3), padding='same', activation='relu', input_shape=(28, 28, 1)))
+    # model.add(MaxPooling2D(pool_size=(2, 2)))
+    # model.add(Conv2D(64, (3,3), padding='same', activation='relu'))
+    # model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Flatten())
-    model.add(Dense(256, activation='relu'))
-    model.add(Dropout(0.5))
-    model.add(Dense(128, activation='relu'))
     model.add(Dense(10, activation='softmax'))
 
     # Compile the model
@@ -42,7 +37,7 @@ def train_and_eval_CNN(X_train, y_train, X_val, y_val, X_test, y_test):
 
     # Train the model with data augmentation
     model.fit(
-        datagen.flow(X_train, y_train, batch_size=96),
+        datagen.flow(X_train, y_train, batch_size=128),
         epochs=10,
         validation_data=(X_val, y_val)
     )

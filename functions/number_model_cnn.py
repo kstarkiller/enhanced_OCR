@@ -7,7 +7,7 @@ NUM_CLASSES = 10
 
 def train_and_eval_CNN(X_train, y_train, X_val, y_val, X_test, y_test):
     model = Sequential()
-    model.add(Conv2D(32, (3,3), padding='same', activation='relu', input_shape=(28, 28, 1)))
+    model.add(Conv2D(32, (3,3), padding='same', activation='relu', input_shape=(48, 48, 1)))
     model.add(Flatten())
     model.add(Dense(10, activation='softmax'))
 
